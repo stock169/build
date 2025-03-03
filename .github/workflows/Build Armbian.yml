@@ -85,6 +85,7 @@ jobs:
          BUILD_MINIMAL=no \
          BUILD_DESKTOP=no \
          EXPERT=yes \
+         KERNEL_ONLY=yes \
          NETWORKING_STACK="network-manager" \
          COMPRESS_OUTPUTIMAGE="sha" \
          KERNEL_CONFIGURE=linux-rk35xx-vendor
@@ -102,5 +103,5 @@ jobs:
       with:
         tag_name: Armbian-oec-box-wxy4
         files: |
-           ./build/output/images/*.gz
+           ./build/output/images/*.*
            ./build/output/debs/*.*
