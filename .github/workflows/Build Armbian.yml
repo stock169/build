@@ -86,7 +86,7 @@ jobs:
          BUILD_DESKTOP=no \
          EXPERT=yes \
          NETWORKING_STACK="network-manager" \
-         COMPRESS_OUTPUTIMAGE="yes" \
+         COMPRESS_OUTPUTIMAGE=gz \
          KERNEL_CONFIGURE=linux-rk35xx-vendor
 
     - name: Check space usage
