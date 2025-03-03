@@ -86,7 +86,7 @@ jobs:
          BUILD_DESKTOP=no \
          EXPERT=yes \
          NETWORKING_STACK="network-manager" \
-         COMPRESS_OUTPUTIMAGE=gz \
+         COMPRESS_OUTPUTIMAGE="sha" \
          KERNEL_CONFIGURE=linux-rk35xx-vendor
          cd output/images
          gzip *.img
