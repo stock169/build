@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  REPO_URL: https://github.com/stock169/armbian-build
+  REPO_URL: https://github.com/stock169/build
   REPO_BRANCH: main
   CONFIG_FILE: 
   DIY_P1_SH: 
@@ -69,36 +69,24 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH armbian
-        ln -sf /workdir/armbian $GITHUB_WORKSPACE/armbian
+        git clone $REPO_URL -b $REPO_BRANCH build
+        ln -sf /workdir/build $GITHUB_WORKSPACE/build
         cd armbian
         cd ..
 
-    #- name: Load custom diy
-    #  run: |
-    #   chmod +x $DIY_P1_SH
-    #   cd armbian
-    #   $GITHUB_WORKSPACE/$DIY_P1_SH
-
- 
-    #- name: Load custom configuration
-    #  run: |
-    #    [ -e files ] && mv files CoreELEC/files
-    #    [ -e $CONFIG_FILE ] && mv $CONFIG_FILE CoreELEC/projects/Amlogic-ce/devices/Amlogic-no/linux/linux.aarch64.conf
-        
     - name: Compile the firmware
       id: compile
       run: |
-        cd armbian
+        cd build
          ./compile.sh \
          BOARD=oec-box-wxy4 \
          BRANCH=vendor \
          RELEASE=noble \
-         BUILD_MINIMAL=no \
+         BUILD_MINIMAL=yes \
          BUILD_DESKTOP=no \
          EXPERT=yes \
          NETWORKING_STACK="network-manager" \
-         COMPRESS_OUTPUTIMAGE="gz" \
+         COMPRESS_OUTPUTIMAGE="yes" \
          KERNEL_CONFIGURE=linux-rk35xx-vendor
 
     - name: Check space usage
