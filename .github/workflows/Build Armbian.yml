@@ -88,6 +88,10 @@ jobs:
          NETWORKING_STACK="network-manager" \
          COMPRESS_OUTPUTIMAGE=gz \
          KERNEL_CONFIGURE=linux-rk35xx-vendor
+         cd output/images
+         gzip *.img
+         cd ..
+         cd ..
 
     - name: Check space usage
       if: (!cancelled())
@@ -98,5 +102,5 @@ jobs:
       with:
         tag_name: Armbian-oec-box-wxy4
         files: |
-           ./build/output/images/*.*
+           ./build/output/images/*.gz
            ./build/output/debs/*.*
