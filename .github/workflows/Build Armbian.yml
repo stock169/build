@@ -102,7 +102,7 @@ jobs:
     - name: Release Firmware
       uses: softprops/action-gh-release@v2
       with:
-        tag_name: Armbian-oec-box-wxy4
+        tag_name: Armbian-oec-box-wxy4-edge
         files: |
            ./build/output/images/*.gz
            ./build/output/debs/*.*
