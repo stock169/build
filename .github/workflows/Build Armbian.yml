@@ -80,7 +80,7 @@ jobs:
         cd build
          ./compile.sh \
          BOARD=oec-box-wxy4 \
-         BRANCH=current \
+         BRANCH=vendor \
          RELEASE=noble \
          BUILD_MINIMAL=no \
          BUILD_DESKTOP=no \
