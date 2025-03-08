@@ -80,8 +80,8 @@ jobs:
         cd build
          ./compile.sh \
          BOARD=oec-box-wxy4 \
-         BRANCH=edge \
-         RELEASE=noble \
+         BRANCH=vendor \
+         RELEASE=bookworm \
          BUILD_MINIMAL=no \
          BUILD_DESKTOP=no \
          EXPERT=yes \
